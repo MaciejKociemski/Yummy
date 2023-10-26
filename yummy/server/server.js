@@ -1,140 +1,69 @@
 import express from "express";
-import session from "express-session";
-import passport from "passport";
-import process from "node:process";
-import { Strategy as LocalStrategy } from "passport-local";
-import mongoose from "mongoose";
-import bodyParser from "body-parser";
 import cors from "cors";
-import swaggerJsdoc from "swagger-jsdoc";
-import swaggerUi from "swagger-ui-express";
+import connectDb from "./config/db";
+import logger from "morgan";
+import {
+  authRouter,
+  recipesRouter,
+  ingredientsRouter,
+  searchRouter,
+  shoppingListRouter,
+  popularRecipeRouter,
+  ownRecipesRouter,
+  favoritesRouter,
+} from "./routes";
 
+import "colors";
+import "dotenv/config";
+
+// Tworzenie serwera
 const app = express();
-const port = process.env.PORT || 3000;
 
-// Połączenie z bazą danych MongoDB
-mongoose.connect("mongodb://localhost/myapp", {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-  useCreateIndex: true,
-});
+// Middleware ______________________________
+app.use(logger("dev"));
+app.use(express.urlencoded({ extended: false }));
+app.use(express.json());
 
-// Definicja modelu użytkownika
-const User = mongoose.model(
-  "User",
-  new mongoose.Schema({
-    username: String,
-    password: String,
-  })
-);
+// Włączenie obsługi Cross-Origin Requests (CORS)
+app.use(cors());
 
-// Konfiguracja Passport.js
-passport.use(
-  new LocalStrategy((username, password, done) => {
-    User.findOne({ username: username }, (err, user) => {
-      if (err) {
-        return done(err);
-      }
-      if (!user) {
-        return done(null, false, { message: "Incorrect username." });
-      }
-      if (user.password !== password) {
-        return done(null, false, { message: "Incorrect password." });
-      }
-      return done(null, user);
-    });
-  })
-);
+// Ustawienie tras ________________________________
+app.use("/api/v1", authRouter);
+app.use("/api/v1", recipesRouter);
+app.use("/api/v1", ownRecipesRouter);
+app.use("/api/v1", ingredientsRouter);
+app.use("/api/v1", searchRouter);
+app.use("/api/v1", shoppingListRouter);
+app.use("/api/v1", favoritesRouter);
+app.use("/api/v1", popularRecipeRouter);
 
-passport.serializeUser((user, done) => {
-  done(null, user.id);
-});
-
-passport.deserializeUser((id, done) => {
-  User.findById(id, (err, user) => {
-    done(err, user);
+// Obsługa błędów ______________________________
+// Obsługa błędu 404
+app.use("*", (req, res, next) => {
+  res.status(404).json({
+    code: 404,
+    message: "Not found",
   });
 });
 
-// Middleware dla sesji i Passport
-app.use(
-  session({ secret: "mysecretkey", resave: false, saveUninitialized: false })
-);
-app.use(passport.initialize());
-app.use(passport.session());
-
-app.use(cors());
-app.use(bodyParser.json());
-
-// Definicja opcji Swagger
-const options = {
-  definition: {
-    openapi: "3.0.0",
-    info: {
-      title: "My Express API with Swagger",
-      version: "1.0.0",
-    },
-  },
-  apis: ["./app.js"], 
-};
-
-
-const swaggerSpec = swaggerJsdoc(options);
-
-// Middleware do wygenerowanej dokumentacji Swagger
-app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
-
-// Middleware do obsługi uwierzytelniania użytkownika
-app.post("/login", (req, res, next) => {
-  passport.authenticate("local", (err, user) => {
-    if (err) {
-      return next(err);
-    }
-    if (!user) {
-      return res.status(401).json({ message: "Login failed" });
-    }
-    req.logIn(user, (err) => {
-      if (err) {
-        return next(err);
-      }
-      return res.json({ message: "Login successful" });
-    });
-  })(req, res, next);
-});
-
-app.get("/logout", (req, res) => {
-  req.logout();
-  res.json({ message: "Logged out" });
-});
-
-// Middleware do sprawdzania stanu uwierzytelnienia
-const isAuthenticated = (req, res, next) => {
-  if (req.isAuthenticated()) {
-    return next();
+// Obsługa ogólnych błędów
+app.use((error, req, res, next) => {
+  if (error.status) {
+    const statusCode = error.status;
+    res
+      .status(statusCode)
+      .json({ code: res.statusCode, message: error.message });
+    return;
   }
-  res.status(401).json({ message: "Not authenticated" });
-};
-
-// Przykładowa chroniona ścieżka
-app.get("/secure", isAuthenticated, (req, res) => {
-  res.json({ message: "This is a protected resource" });
+  const statusCode = res.statusCode || 500;
+  res.status(statusCode).json({ code: res.statusCode, message: error.message });
 });
 
-// Ścieżka dokumentacji Swagger
-/**
- * @swagger
- * /api-docs:
- *   get:
- *     description: Otwiera interfejs Swagger UI z dokumentacją API
- *     responses:
- *       '200':
- *         description: Sukces
- */
-app.get("/api-docs", (req, res) => {
-  res.send('Dokumentacja Swagger: <a href="/api-docs">/api-docs</a>');
-});
+// Połączenie z bazą danych
+connectDb();
 
-// Rozpoczęcie nasłuchiwania na określonym porcie
-app.listen(port, () => {
-  console.log(`Serwer Express nasłuchuje na porcie ${port}`);
+// Pobranie portu i uruchomienie serwera
+const { PORT = 5000 } = process.env;
+app.listen(PORT, () => {
+  console.log(`Serwer działa na porcie: ${process.env.PORT}`.white.bgCyan.bold);
 });

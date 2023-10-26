@@ -20,7 +20,7 @@ import {
 } from "../AuthForm.styled";
 import { LoginWithGoogle } from "../../LoginWithGoogle/LoginWithGoogle";
 
-import { Link } from "../../../pages/Signin/Signin.styled";
+import { Link } from "../../../pages/SignIn/SignIn.styled";
 const SignupSchema = Yup.object().shape({
   name: Yup.string()
     .min(2, "Too Short!")

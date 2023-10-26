@@ -1,4 +1,4 @@
-import sprite from "img/sprite.svg";
+import sprite from "../../../img/sprite.svg";
 import { Button } from "./BurgerMenu.styled";
 export const BurgerMenu = ({ onClick, color }) => {
   return (

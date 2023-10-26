@@ -4,7 +4,7 @@ import {
   BoxForImage,
   AuthImage,
   Container,
-} from "../../pages/Signin/Signin.styled";
+} from "../SignIn/SignIn.styled";
 import registerGirlMob from "../../img/register-mob.png";
 import registerGirlMob2X from "../../img/register-mob@2x.png";
 import registerGirlTab from "../../img/register-tablet.png";

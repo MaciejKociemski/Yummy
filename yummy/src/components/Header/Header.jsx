@@ -5,8 +5,8 @@ import { Logo } from "./Logo/Logo";
 import { User } from "./User/User";
 import { BurgerMenu } from "./BurgerMenu/BurgerMenu";
 import { Navigation } from "./Navigation/Navigation";
-import { ThemeToggler } from "./ThemeToggler/ThemeToggler";
-import sprite from "img/sprite.svg";
+import { ThemeToggler } from "./ThemeToogler/ThemeToggler";
+import sprite from "../../img/sprite.svg";
 import {
   Button,
   HeaderBox,

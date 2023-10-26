@@ -17,7 +17,7 @@ import {
   FlagForInput,
   IconPassword,
 } from "../AuthForm.styled";
-import { LinkRegister } from "../../../pages/Signin/Signin.styled";
+import { LinkRegister } from "../../../pages/SignIn/SignIn.styled";
 import { LoginWithGoogle } from "../../LoginWithGoogle/LoginWithGoogle";
 const SigninSchema = Yup.object().shape({
   email: Yup.string().email("Invalid email").required("Required"),
