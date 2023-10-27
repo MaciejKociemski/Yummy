@@ -24,7 +24,7 @@ class AuthController {
     await User.findByIdAndUpdate(id, { token });
 
     res.redirect(
-    //   `https://romaniv2511.github.io/so-yummy/welcome?token=${token}`
+    //
     );
   }
 
