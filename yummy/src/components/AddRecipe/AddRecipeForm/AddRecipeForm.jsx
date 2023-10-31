@@ -15,8 +15,8 @@ import { RecipeDescriptionFields } from "../RecipeDescriptionFields/RecipeDescri
 import { RecipeIngredientsFields } from "../RecipeIngredientsFields/RecipeIngredientsFields";
 import { RecipePreparationFields } from "../AddRecipe.jsx";
 
-import placeholder from "img/add-recipe-placeholder.png";
-
+import placeholder from "../../../img/add-recipe-placeholder.png";
+// img/add-recipe-placeholder.png"
 const initialValues = {
   title: "",
   description: "",

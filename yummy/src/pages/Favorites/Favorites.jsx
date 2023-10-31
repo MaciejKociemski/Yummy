@@ -1,18 +1,18 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { PagesWrapper } from "components/PagesWrapper/PagesWrapper";
+import { PagesWrapper } from "../../components/PagesWrapper/PagesWrapper";
 import { Container, List, Item } from "./Favorites.styled";
-import { Loader } from "components/Loader/Loader";
-import { RecipeCard } from "components/RecipeCard/RecipeCard";
+import { Loader } from "../../components/Loader/Loader";
+import { RecipeCard } from "../../components/RecipeCard/RecipeCard";
 import {
   selectError,
   selectFavorites,
   selectIsLoading,
 } from "redux/favorites/favoritesSelectors";
 import { fetchFavorites } from "redux/favorites/favoritesOperations";
-import { ErrorImageContainer } from "components/ErrorImageContainer/ErrorImageContainer";
-import { MainPageTitle } from "components/MainPageTitle/MainPageTitle";
-import { Pagination } from "components/Pagination/Pagination";
+import { ErrorImageContainer } from "../../components/ErrorImageContainer/ErrorImageContainer";
+import { MainPageTitle } from "../../components/MainPageTitle/MainPageTitle";
+import { Pagination } from "../../components/Pagination/Pagination";
 import placeholder from "../../img/placeholder.jpg";
 import ErrorPage from "pages/ErrorPage/ErrorPage";
 

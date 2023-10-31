@@ -1,14 +1,14 @@
 import axios from "axios";
 import { useAuth } from "../../hooks/useAuth";
 
-import { Loader } from "components/Loader/Loader";
-import { MainPageTitle } from "components/MainPageTitle/MainPageTitle";
-import { RecipeCard } from "components/RecipeCard/RecipeCard";
-import { ErrorImageContainer } from "components/ErrorImageContainer/ErrorImageContainer";
-import { PagesWrapper } from "components/PagesWrapper/PagesWrapper";
+import { Loader } from "../../components/Loader/Loader";
+import { MainPageTitle } from "../../components/MainPageTitle/MainPageTitle";
+import { RecipeCard } from "../../components/RecipeCard/RecipeCard";
+import { ErrorImageContainer } from "../../components/ErrorImageContainer/ErrorImageContainer";
+import { PagesWrapper } from "../../components/PagesWrapper/PagesWrapper";
 import { useEffect, useState } from "react";
 import { Container, List, Item } from "pages/Favorites/Favorites.styled";
-import { Pagination } from "components/Pagination/Pagination";
+import { Pagination } from "../../components/Pagination/Pagination";
 import placeholder from "../../img/placeholder.jpg";
 import ErrorPage from "pages/ErrorPage/ErrorPage";
 

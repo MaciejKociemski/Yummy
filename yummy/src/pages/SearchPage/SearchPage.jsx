@@ -1,13 +1,13 @@
 import axios from "axios";
-import { MainPageTitle } from "components/MainPageTitle/MainPageTitle";
-import { PagesWrapper } from "components/PagesWrapper/PagesWrapper";
-import { SearchBar } from "components/SearchBar/SearchBar";
+import { MainPageTitle } from "../../components/MainPageTitle/MainPageTitle";
+import { PagesWrapper } from "../../components/PagesWrapper/PagesWrapper";
+import { SearchBar } from "../../components/SearchBar/SearchBar";
 import { useLocation, useNavigate, useSearchParams } from "react-router-dom";
-import { SearchedRecipesList } from "components/SearchedRecipesList/SearchedRecipesList";
+import { SearchedRecipesList } from "../../components/SearchedRecipesList/SearchedRecipesList";
 import { useEffect, useState } from "react";
-import { ErrorImageContainer } from "components/ErrorImageContainer/ErrorImageContainer";
-import { Loader } from "components/Loader/Loader";
-import { Pagination } from "components/Pagination/Pagination";
+import { ErrorImageContainer } from "../../components/ErrorImageContainer/ErrorImageContainer";
+import { Loader } from "../../components/Loader/Loader";
+import { Pagination } from "../../components/Pagination/Pagination";
 
 const SearchPage = () => {
   const location = useLocation();

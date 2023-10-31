@@ -220,7 +220,7 @@ class AuthController {
 
     const verifyEmail = {
       to: email,
-      subject: "SoYummy subscription",
+      subject: "Yummy App and Stories subscription",
       html: subscribeLetter(),
     };
 

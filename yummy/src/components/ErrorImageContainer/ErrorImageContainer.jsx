@@ -4,7 +4,7 @@ import imageErrorTab from "../../img/search-any-tablet.png";
 import imageErrorTabRetina from "../../img/search-any-tablet@2x.png";
 import imageErrorDesk from "../../img/search-any-desktop.png";
 import imageErrorDeskRetina from "../../img/search-any-desktop@2x.png";
-import { ErrorMessage } from "components/PreviewCategories/PreviewCategories.styled";
+import { ErrorMessage } from "../../components/PreviewCategories/PreviewCategories.styled";
 import { ErrorImage } from "./ErrorImageContainer.styled";
 
 export const ErrorImageContainer = ({ title }) => {

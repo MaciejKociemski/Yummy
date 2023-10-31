@@ -13,7 +13,7 @@ import { ContainerError } from "pages/Recipe/Recipe.styled";
 import { ErrorImageContainer } from "components/ErrorImageContainer/ErrorImageContainer";
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Loader } from "components/Loader/Loader";
+import { Loader } from "../../components/Loader/Loader";
 import imgPlug from "img/recipe-img.jpg";
 import {
   fetchShoppingList,

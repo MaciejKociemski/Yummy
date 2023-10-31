@@ -6,17 +6,17 @@ import {
   useParams,
   useSearchParams,
 } from "react-router-dom";
-import { Loader } from "components/Loader/Loader";
+import { Loader } from "../../components/Loader/Loader";
 import {
   ButtonsList,
   ButtonCategory,
   ScrollableContainer,
 } from "./Categories.styled";
-import { PagesWrapper } from "components/PagesWrapper/PagesWrapper";
-import { Pagination } from "components/Pagination/Pagination";
-import { MainPageTitle } from "components/MainPageTitle/MainPageTitle";
-import { ErrorImageContainer } from "components/ErrorImageContainer/ErrorImageContainer";
-import { RecipesList } from "components/RecipesList/RecipesList";
+import { PagesWrapper } from "../../components/PagesWrapper/PagesWrapper";
+import { Pagination } from "../../components/Pagination/Pagination";
+import { MainPageTitle } from "../../components/MainPageTitle/MainPageTitle";
+import { ErrorImageContainer } from "../../components/ErrorImageContainer/ErrorImageContainer";
+import { RecipesList } from "../../components/RecipesList/RecipesList";
 
 const Categories = () => {
   const location = useLocation();

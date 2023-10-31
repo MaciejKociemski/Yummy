@@ -1,5 +1,5 @@
-import { SearchForm } from "components/SearchForm/SearchForm";
-import { SearchTypeSelector } from "components/SearchTypeSelector/SearchTypeSelector";
+import { SearchForm } from "../../components/SearchForm/SearchForm";
+import { SearchTypeSelector } from "../../components/SearchTypeSelector/SearchTypeSelector";
 import { FormContainer } from "./SearchBar.styled";
 
 export const SearchBar = ({

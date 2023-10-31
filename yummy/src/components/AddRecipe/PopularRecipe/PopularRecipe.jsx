@@ -1,7 +1,7 @@
 import axios from "axios";
 import MediaQuery from "react-responsive";
-import { Loader } from "components/Loader/Loader";
-import { ErrorMessage } from "components/PreviewCategories/PreviewCategories.styled";
+import { Loader } from "../../../components/Loader/Loader";
+import { ErrorMessage } from "../../../components/PreviewCategories/PreviewCategories.styled";
 import { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import {

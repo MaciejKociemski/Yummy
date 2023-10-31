@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 
 import axios from "axios";
-import { CategoryDishItem } from "components/CategoryDishItem/CategoryDishItem";
-import { Container } from "components/Container/Container";
+import { CategoryDishItem } from "../../components/CategoryDishItem/CategoryDishItem";
+import { Container } from "../../components/Container/Container";
 import {
   MainList,
   TitleList,
@@ -12,8 +12,8 @@ import {
   ErrorMessage,
 } from "./PreviewCategories.styled";
 import { useMediaQuery } from "react-responsive";
-import { Loader } from "components/Loader/Loader";
-import { MainContainerDownStyle } from "components/PagesWrapper/PagesWrapper.styled";
+import { Loader } from "../../components/Loader/Loader";
+import { MainContainerDownStyle } from "../../components/PagesWrapper/PagesWrapper.styled";
 
 export const PreviewCategories = () => {
   const [dishes, setDishes] = useState([]);

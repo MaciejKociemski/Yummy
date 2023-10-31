@@ -1,4 +1,4 @@
-import { TitleAccent } from "components/Hero/Hero.styled";
+import { TitleAccent } from "../../components/Hero/Hero.styled";
 import { HealthyBlock, Text, GoToRecipe } from "./ChooseYourBreakfast.styled";
 import { BsArrowRight } from "react-icons/bs";
 

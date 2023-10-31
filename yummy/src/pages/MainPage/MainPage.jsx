@@ -1,6 +1,6 @@
-import Hero from "components/Hero/Hero";
+import Hero from "../../components/Hero/Hero";
 import { BackgroundHero } from "./MainPage.styled";
-import { PreviewCategories } from "components/PreviewCategories/PreviewCategories";
+import { PreviewCategories } from "../../components/PreviewCategories/PreviewCategories";
 
 const WelcomePage = () => {
   return (
