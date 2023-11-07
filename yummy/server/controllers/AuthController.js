@@ -2,11 +2,11 @@ import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 import gravatar from "gravatar";
 import dotenv from "dotenv";
-dotenv.config();
 import  { User } from"../models/user";
 import  { HttpError, sendEmail } from "../helpers";
 import subscribeLetter from"../letters/subscribeLetter";
 
+dotenv.config();
 const { SECRET_KEY } = process.env;
 
 class AuthController {
@@ -24,7 +24,7 @@ class AuthController {
     await User.findByIdAndUpdate(id, { token });
 
     res.redirect(
-    //
+   
     );
   }
 

@@ -72,7 +72,7 @@ const registerSchema = Joi.object({
     .pattern(emailRegexp)
     .email({
       minDomainSegments: 1,
-      tlds: { allow: ["com", "net", "ua"] },
+      tlds: { allow: ["com", "net", "pl"] },
     })
     .required()
     .messages({
@@ -86,7 +86,7 @@ const loginSchema = Joi.object({
     .pattern(emailRegexp)
     .email({
       minDomainSegments: 1,
-      tlds: { allow: ["com", "net", "ua"] },
+      tlds: { allow: ["com", "net", "pl"] },
     })
     .required(),
   password: Joi.string().min(6).required(),
@@ -98,7 +98,7 @@ const updateUserSchema = Joi.object({
     .pattern(emailRegexp)
     .email({
       minDomainSegments: 1,
-      tlds: { allow: ["com", "net", "ua"] },
+      tlds: { allow: ["com", "net", "pl"] },
     })
     .messages({
       "string.pattern.base": `"email" should be example@mail.com`,
@@ -111,7 +111,7 @@ const subscriptionSchema = Joi.object({
     .pattern(emailRegexp)
     .email({
       minDomainSegments: 1,
-      tlds: { allow: ["com", "net", "ua"] },
+      tlds: { allow: ["com", "net", "pl"] },
     })
     .messages({
       "string.pattern.base": `"email" should be example@mail.com`,

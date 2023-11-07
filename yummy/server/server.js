@@ -24,7 +24,7 @@ app.use(logger("dev"));
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
-// Włączenie obsługi Cross-Origin Requests (CORS)
+
 app.use(cors());
 
 // Ustawienie tras ________________________________
